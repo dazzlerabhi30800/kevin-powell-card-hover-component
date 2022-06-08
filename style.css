@@ -1,0 +1,119 @@
+:root {
+    --clr-neutral-900: hsl(207, 19%, 9%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+    --clr-accent-400: hsl(142, 90%, 61%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    line-height: 1.6;
+    background: var(--clr-neutral-900);
+}
+
+
+.card {
+    color: var(--clr-neutral-100);
+    background: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1026&q=80');
+    background-size: cover;
+    padding: 10rem 0 0;
+    max-width: 35ch;
+    border-radius: .5rem;
+    overflow: hidden;
+    transition: all 300ms linear;
+}
+
+.card:hover,
+.card:focus-within {
+    transform: scale(1.05);
+}
+
+.card-content {
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3) 20%, rgb(0, 0, 0));
+    /* transform: translateY(72%); */
+    transition: transform 600ms ease-in;
+}
+
+
+
+.card-body {
+    color: rgba(255, 255, 255, 0.856);
+}
+
+
+.card-title {
+    position: relative;
+    width: max-content;
+}
+
+.card-title::after {
+    content: "";
+    position: absolute;
+    left: calc(var(--padding) * -1);
+    height: 3px;
+    background: hsl(142, 90%, 61%);
+    width: calc(100% + var(--padding));
+    bottom: 0;
+    transform-origin: left;
+    transition: transform 600ms ease;
+}
+
+
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--clr-neutral-900);
+    background: var(--clr-accent-400);
+    padding: 8px 10px;
+    border-radius: 5px;
+    transition: background 300ms ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+    background: var(--clr-neutral-100);
+}
+
+@media (hover) {
+    .card:hover .card-content>*:not(.card-title),
+    .card:focus-within .card-content>*:not(.card-title) {
+        opacity: 1;
+        transition-delay: 600ms;
+    }
+
+    .card-content>*:not(.card-title) {
+        opacity: 0;
+        transition: opacity 600ms ease-in-out;
+    }
+
+    .card-content {
+        transform: translateY(72%);
+        transition: transform 600ms ease-in;
+    }
+
+    .card:hover .card-content,
+    .card:focus-within .card-content {
+        transform: translateY(0%);
+    }
+
+    .card-title::after {
+        transform: scaleX(0);
+    }
+    .card:hover .card-title::after,
+    .card:focus-within .card-title::after {
+        transform: scaleX(1);
+        transition-delay: 900ms;
+    }
+
+}
