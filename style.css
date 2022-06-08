@@ -30,10 +30,6 @@ body {
     transition: all 300ms linear;
 }
 
-.card:hover,
-.card:focus-within {
-    transform: scale(1.05);
-}
 
 .card-content {
     --padding: 1.5rem;
@@ -86,6 +82,13 @@ body {
 }
 
 @media (hover) {
+
+    .card:hover,
+    .card:focus-within {
+        transform: scale(1.05);
+    }
+
+
     .card:hover .card-content>*:not(.card-title),
     .card:focus-within .card-content>*:not(.card-title) {
         opacity: 1;
@@ -110,6 +113,7 @@ body {
     .card-title::after {
         transform: scaleX(0);
     }
+
     .card:hover .card-title::after,
     .card:focus-within .card-title::after {
         transform: scaleX(1);
