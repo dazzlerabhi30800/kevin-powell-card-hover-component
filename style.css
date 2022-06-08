@@ -117,3 +117,17 @@ body {
     }
 
 }
+
+
+/* @media (hover :hover) {
+    body {
+        background : rgb(21, 3, 41) !important;
+    }
+    
+}
+
+@media (hover : none) {
+    body {
+        background : rgb(5, 8, 54) !important;
+    }
+} */
